@@ -1,0 +1,5 @@
+# Accepted Risk: Assessment requires the application to be accessible via a public IP
+AVD-AWS-0164
+
+# Accepted Risk: EC2 instance needs outbound internet access to install Docker via user_data script
+AVD-AWS-0104
