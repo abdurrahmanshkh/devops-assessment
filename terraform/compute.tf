@@ -1,15 +1,29 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
 resource "aws_instance" "web_server" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  # SECURITY FIX 1: Encrypt the root hard drive (Resolves AWS-0131)
+  # SECURITY FIX 1: Encrypt the root hard drive
   root_block_device {
     encrypted = true
   }
 
-  # SECURITY FIX 2: Enforce IMDSv2 metadata tokens (Resolves AWS-0028)
+  # SECURITY FIX 2: Enforce IMDSv2 metadata tokens
   metadata_options {
     http_tokens = "required"
   }
