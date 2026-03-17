@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: .
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      # Mount the Windows Docker socket to allow Jenkins to run Docker commands
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: local_jenkins
+
+volumes:
+  jenkins_data:
