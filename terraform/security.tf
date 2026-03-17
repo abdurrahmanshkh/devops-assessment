@@ -3,16 +3,16 @@ resource "aws_security_group" "web_sg" {
   description = "Security group for web application"
   vpc_id      = aws_vpc.main_vpc.id
 
-  # INTENTIONAL VULNERABILITY: SSH open to the world
+  # REMEDIATED VULNERABILITY: SSH restricted to a specific trusted IP
   ingress {
-    description = "SSH from anywhere - INTENTIONAL VULNERABILITY"
+    description = "SSH from Admin IP only"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["182.48.218.175/32"]
   }
 
-  # Open port 3000 for our Node.js app
+  # Open port 3000 for our Node.js app (Open to the world is acceptable for a public web app)
   ingress {
     description = "App Port"
     from_port   = 3000
