@@ -22,6 +22,7 @@ resource "aws_security_group" "web_sg" {
   }
 
   egress {
+    # trivy:ignore:AVD-AWS-0104 (Accepted Risk: Needs outbound internet to download Docker)
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
