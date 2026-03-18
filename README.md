@@ -54,8 +54,3 @@ The AI recommended changing the ingress CIDR block for port 22 from the global w
 The application was successfully deployed to AWS and is accessible here:
 
 **Live App:** http://13.233.186.53:3000
-
----
-
-## Demonstration Video
-[Insert link to your YouTube/Drive 5-10 minute screen recording here]
