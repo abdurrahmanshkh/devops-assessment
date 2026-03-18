@@ -50,9 +50,10 @@ The AI recommended changing the ingress CIDR block for port 22 from the global w
 ---
 
 ## Application Deployment Verification
-The application was successfully deployed to AWS and is accessible via the public IP.
 
-![Application Running]([http://13.233.186.53:3000])
+The application was successfully deployed to AWS and is accessible here:
+
+**Live App:** http://13.233.186.53:3000
 
 ---
 
