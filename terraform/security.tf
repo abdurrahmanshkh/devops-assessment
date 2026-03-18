@@ -19,7 +19,7 @@ resource "aws_security_group" "web_sg" {
 }
 
 data "aws_prefix_list" "s3" {
-  name = "com.amazonaws.${var.aws_region}.s3"
+  name = "com.amazonaws.ap-south-1.s3"
 }
 
 resource "aws_security_group_rule" "egress_s3" {
